@@ -39,7 +39,7 @@ export const offerRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerOffer.home.title'
+      pageTitle: 'Offers'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const offerRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOffer.home.title'
+      pageTitle: 'Offers'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const offerRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOffer.home.title'
+      pageTitle: 'Offers'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const offerRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOffer.home.title'
+      pageTitle: 'Offers'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const offerPopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOffer.home.title'
+      pageTitle: 'Offers'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

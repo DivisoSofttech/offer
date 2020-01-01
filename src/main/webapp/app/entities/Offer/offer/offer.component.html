@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="offerApp.offerOffer.home.title">Offers</span>
+        <span>Offers</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-offer" [routerLink]="['/offer/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="offerApp.offerOffer.home.createLabel">
+            <span class="hidden-sm-down" >
             Create new Offer
             </span>
         </button>
@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'offerApp.offerOffer.home.search' | translate }}">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -29,16 +29,16 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="title"><span jhiTranslate="offerApp.offerOffer.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="description"><span jhiTranslate="offerApp.offerOffer.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="createdDate"><span jhiTranslate="offerApp.offerOffer.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="updatedDate"><span jhiTranslate="offerApp.offerOffer.updatedDate">Updated Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="promoCode"><span jhiTranslate="offerApp.offerOffer.promoCode">Promo Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="usageCount"><span jhiTranslate="offerApp.offerOffer.usageCount">Usage Count</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="priceRuleId"><span jhiTranslate="offerApp.offerOffer.priceRule">Price Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="paymentRuleId"><span jhiTranslate="offerApp.offerOffer.paymentRule">Payment Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="orderRuleId"><span jhiTranslate="offerApp.offerOffer.orderRule">Order Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="title"><span>Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDate"><span>Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updatedDate"><span>Updated Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="promoCode"><span>Promo Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usageCount"><span>Usage Count</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="priceRuleId"><span>Price Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentRuleId"><span>Payment Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderRuleId"><span>Order Rule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -72,13 +72,13 @@
                                 [routerLink]="['/offer', offer.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/offer', offer.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'offer/'+ offer.id + '/delete'} }]"
@@ -86,7 +86,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

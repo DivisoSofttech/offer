@@ -1,11 +1,11 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="allocationMethod">
-            <h2><span jhiTranslate="offerApp.offerAllocationMethod.detail.title">Allocation Method</span> {{allocationMethod.id}}</h2>
+            <h2><span>Allocation Method</span> {{allocationMethod.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="offerApp.offerAllocationMethod.allocationMethod" [ngbTooltip]="'offerApp.offerAllocationMethod.help.allocationMethod' | translate">Allocation Method</span></dt>
+                <dt><span ngbTooltip="shipping-line :each  line-item:across">Allocation Method</span></dt>
                 <dd>
                     <span>{{allocationMethod.allocationMethod}}</span>
                 </dd>
@@ -14,13 +14,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/allocation-method', allocationMethod.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

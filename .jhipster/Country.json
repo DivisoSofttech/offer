@@ -18,7 +18,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190723070542",
+    "changelogDate": "20200101045122",
     "javadoc": "Country entity.\n@author Anjali",
     "entityTableName": "country",
     "dto": "mapstruct",

@@ -14,7 +14,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190723070531",
+    "changelogDate": "20200101045111",
     "javadoc": "OfferTarget entity.\nto store the products with offers\n@author Anjali",
     "entityTableName": "offer_target",
     "dto": "mapstruct",

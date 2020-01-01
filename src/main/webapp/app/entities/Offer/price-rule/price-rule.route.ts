@@ -39,7 +39,7 @@ export const priceRuleRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerPriceRule.home.title'
+      pageTitle: 'PriceRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const priceRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerPriceRule.home.title'
+      pageTitle: 'PriceRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const priceRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerPriceRule.home.title'
+      pageTitle: 'PriceRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const priceRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerPriceRule.home.title'
+      pageTitle: 'PriceRules'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const priceRulePopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerPriceRule.home.title'
+      pageTitle: 'PriceRules'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

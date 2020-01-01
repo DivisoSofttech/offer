@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing CustomerSelection.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class CustomerSelectionResource {
 
     private final Logger log = LoggerFactory.getLogger(CustomerSelectionResource.class);

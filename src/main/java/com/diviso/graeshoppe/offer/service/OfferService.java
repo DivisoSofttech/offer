@@ -1,6 +1,5 @@
 package com.diviso.graeshoppe.offer.service;
 
-import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
 
 import org.springframework.data.domain.Page;
@@ -54,20 +53,4 @@ public interface OfferService {
      * @return the list of entities
      */
     Page<OfferDTO> search(String query, Pageable pageable);
-    
-    /**
-     * claim the offer.
-     *
-     * @param offerDTO the entity to save
-     * @return the persisted entity
-     */
-    void claimOffer(OrderModel orderModel);
-    
-    /**
-     * Get the "promoCode" of the offer.
-     *
-     * @param promoCode the promoCode of the entity
-     * @return the entity
-     */
-    public Optional<OfferDTO> findOfferByPromoCode(String promoCode);
 }

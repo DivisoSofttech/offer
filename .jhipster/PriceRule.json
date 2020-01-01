@@ -74,7 +74,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20190723070534",
+    "changelogDate": "20200101045114",
     "javadoc": "PriceRule entity.\nrepresents the price rule of the offer\n@author Anjali",
     "entityTableName": "price_rule",
     "dto": "mapstruct",

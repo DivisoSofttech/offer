@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing PriceRule.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class PriceRuleResource {
 
     private final Logger log = LoggerFactory.getLogger(PriceRuleResource.class);

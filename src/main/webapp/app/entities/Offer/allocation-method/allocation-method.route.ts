@@ -39,7 +39,7 @@ export const allocationMethodRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerAllocationMethod.home.title'
+      pageTitle: 'AllocationMethods'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const allocationMethodRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerAllocationMethod.home.title'
+      pageTitle: 'AllocationMethods'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const allocationMethodRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerAllocationMethod.home.title'
+      pageTitle: 'AllocationMethods'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const allocationMethodRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerAllocationMethod.home.title'
+      pageTitle: 'AllocationMethods'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const allocationMethodPopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerAllocationMethod.home.title'
+      pageTitle: 'AllocationMethods'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing OrderRule.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class OrderRuleResource {
 
     private final Logger log = LoggerFactory.getLogger(OrderRuleResource.class);

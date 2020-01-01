@@ -1,19 +1,19 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="country">
-            <h2><span jhiTranslate="offerApp.offerCountry.detail.title">Country</span> {{country.id}}</h2>
+            <h2><span>Country</span> {{country.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="offerApp.offerCountry.countryName">Country Name</span></dt>
+                <dt><span>Country Name</span></dt>
                 <dd>
                     <span>{{country.countryName}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerCountry.countryCode">Country Code</span></dt>
+                <dt><span>Country Code</span></dt>
                 <dd>
                     <span>{{country.countryCode}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerCountry.offer">Offer</span></dt>
+                <dt><span>Offer</span></dt>
                 <dd>
                     <div *ngIf="country.offerId">
                         <a [routerLink]="['/offer', country.offerId, 'view']">{{country.offerId}}</a>
@@ -24,13 +24,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/country', country.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

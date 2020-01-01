@@ -4,8 +4,6 @@ import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
 
-import com.diviso.graeshoppe.offer.domain.DeductionValueType;
-
 /**
  * A DTO for the PriceRule entity.
  */
@@ -42,22 +40,8 @@ public class PriceRuleDTO implements Serializable {
     private Long customerSelectionId;
 
     private Long allocationMethodId;
-    
-   /* private String deductionType;
 
-    public String getDeductionType() {
-		return deductionType;
-	}
-
-	public void setDeductionType(String deductionType) {
-		this.deductionType = deductionType;
-	}*/
-
-	public Boolean getOncePerCustomer() {
-		return oncePerCustomer;
-	}
-
-	public Long getId() {
+    public Long getId() {
         return id;
     }
 

@@ -76,7 +76,7 @@
             "otherEntityRelationshipName": "offer"
         }
     ],
-    "changelogDate": "20190723070533",
+    "changelogDate": "20200101045113",
     "javadoc": "Offer entity.\nentity to store the offer\n@author Anjali",
     "entityTableName": "offer",
     "dto": "mapstruct",

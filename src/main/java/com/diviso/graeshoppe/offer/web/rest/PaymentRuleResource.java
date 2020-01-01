@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing PaymentRule.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class PaymentRuleResource {
 
     private final Logger log = LoggerFactory.getLogger(PaymentRuleResource.class);

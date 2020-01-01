@@ -1,7 +1,6 @@
 package com.diviso.graeshoppe.offer.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.service.OfferService;
 import com.diviso.graeshoppe.offer.web.rest.errors.BadRequestAlertException;
 import com.diviso.graeshoppe.offer.web.rest.util.HeaderUtil;
@@ -144,33 +143,5 @@ public class OfferResource {
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/offers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
-    
-    /**
-     * GET  /offers/:promoCode : get the "promoCode" offer.
-     *
-     * @param promoCode the promoCode of the offerDTO to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the offerDTO, or with status 404 (Not Found)
-     */
-    @GetMapping("/offers/get-offer-by-promoCode/{promoCode}")
-    @Timed
-    public ResponseEntity<OfferDTO> getOfferByPromoCode(@PathVariable String promoCode) {
-        log.debug("REST request to get Offer : {}", promoCode);
-        Optional<OfferDTO> offerDTO = offerService.findOfferByPromoCode(promoCode);
-        return ResponseUtil.wrapOrNotFound(offerDTO);
-    }
 
-    /**
-     * POST  /offers/claimOffer/ : get the "promoCode" and claim the offer.
-     *
-     * @param orderModel the orderModel of the offerDTO to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the offerDTO, or with status 404 (Not Found)
-     */
-    @PostMapping("/offers/claimOffer")
-    @Timed
-    public String claimOffer(@RequestBody OrderModel orderModel) {
-        log.debug("REST request to claim Offer : {}", orderModel.getPromoCode());
-        offerService.claimOffer(orderModel);
-        return "success";
-        
-    }
 }

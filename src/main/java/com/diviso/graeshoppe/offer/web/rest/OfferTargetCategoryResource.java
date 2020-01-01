@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing OfferTargetCategory.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class OfferTargetCategoryResource {
 
     private final Logger log = LoggerFactory.getLogger(OfferTargetCategoryResource.class);

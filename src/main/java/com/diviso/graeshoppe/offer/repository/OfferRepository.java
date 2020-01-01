@@ -1,7 +1,6 @@
 package com.diviso.graeshoppe.offer.repository;
 
 import com.diviso.graeshoppe.offer.domain.Offer;
-import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
 
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface OfferRepository extends JpaRepository<Offer, Long> {
-	
+
 	public Optional<Offer> findByPromoCode(String promoCode);
 
 }

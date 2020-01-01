@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity PriceRule.
     -->
-    <changeSet id="20190723070534-2" author="jhipster">
+    <changeSet id="20200101045114-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="target_type_id"
                                  baseTableName="price_rule"

@@ -14,7 +14,7 @@
             "otherEntityRelationshipName": "deductionValueType"
         }
     ],
-    "changelogDate": "20190723070538",
+    "changelogDate": "20200101045118",
     "javadoc": "DeductionValueType entity.\nrepresents amount or percentage type to deduct\n@author Anjali",
     "entityTableName": "deduction_value_type",
     "dto": "mapstruct",

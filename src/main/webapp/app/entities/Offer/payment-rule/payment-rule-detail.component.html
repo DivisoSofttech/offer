@@ -1,27 +1,27 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="paymentRule">
-            <h2><span jhiTranslate="offerApp.offerPaymentRule.detail.title">Payment Rule</span> {{paymentRule.id}}</h2>
+            <h2><span>Payment Rule</span> {{paymentRule.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="offerApp.offerPaymentRule.paymentMode">Payment Mode</span></dt>
+                <dt><span>Payment Mode</span></dt>
                 <dd>
                     <span>{{paymentRule.paymentMode}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerPaymentRule.authorizedProvider">Authorized Provider</span></dt>
+                <dt><span>Authorized Provider</span></dt>
                 <dd>
                     <span>{{paymentRule.authorizedProvider}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerPaymentRule.cashBackType">Cash Back Type</span></dt>
+                <dt><span>Cash Back Type</span></dt>
                 <dd>
                     <span>{{paymentRule.cashBackType}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerPaymentRule.cashBackValue">Cash Back Value</span></dt>
+                <dt><span>Cash Back Value</span></dt>
                 <dd>
                     <span>{{paymentRule.cashBackValue}}</span>
                 </dd>
-                <dt><span jhiTranslate="offerApp.offerPaymentRule.numberOfTransactionLimit">Number Of Transaction Limit</span></dt>
+                <dt><span>Number Of Transaction Limit</span></dt>
                 <dd>
                     <span>{{paymentRule.numberOfTransactionLimit}}</span>
                 </dd>
@@ -30,13 +30,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/payment-rule', paymentRule.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
     </div>

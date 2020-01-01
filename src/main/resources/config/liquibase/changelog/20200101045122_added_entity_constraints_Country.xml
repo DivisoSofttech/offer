@@ -4,13 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <!--
-        Added the constraints for entity Store.
+        Added the constraints for entity Country.
     -->
-    <changeSet id="20190723070537-2" author="jhipster">
+    <changeSet id="20200101045122-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="offer_id"
-                                 baseTableName="store"
-                                 constraintName="fk_store_offer_id"
+                                 baseTableName="country"
+                                 constraintName="fk_country_offer_id"
                                  referencedColumnNames="id"
                                  referencedTableName="offer"/>
 

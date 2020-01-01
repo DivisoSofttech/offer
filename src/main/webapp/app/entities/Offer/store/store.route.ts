@@ -39,7 +39,7 @@ export const storeRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerStore.home.title'
+      pageTitle: 'Stores'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const storeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerStore.home.title'
+      pageTitle: 'Stores'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const storeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerStore.home.title'
+      pageTitle: 'Stores'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const storeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerStore.home.title'
+      pageTitle: 'Stores'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const storePopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerStore.home.title'
+      pageTitle: 'Stores'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

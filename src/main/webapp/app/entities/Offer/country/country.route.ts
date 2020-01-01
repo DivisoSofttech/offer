@@ -39,7 +39,7 @@ export const countryRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerCountry.home.title'
+      pageTitle: 'Countries'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerCountry.home.title'
+      pageTitle: 'Countries'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerCountry.home.title'
+      pageTitle: 'Countries'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerCountry.home.title'
+      pageTitle: 'Countries'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const countryPopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerCountry.home.title'
+      pageTitle: 'Countries'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

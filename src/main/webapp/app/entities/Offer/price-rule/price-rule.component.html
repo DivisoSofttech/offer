@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="offerApp.offerPriceRule.home.title">Price Rules</span>
+        <span>Price Rules</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-price-rule" [routerLink]="['/price-rule/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="offerApp.offerPriceRule.home.createLabel">
+            <span class="hidden-sm-down" >
             Create new Price Rule
             </span>
         </button>
@@ -13,7 +13,7 @@
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
                 <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'offerApp.offerPriceRule.home.search' | translate }}">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
                     <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
                         <fa-icon [icon]="'search'"></fa-icon>
                     </button>
@@ -29,22 +29,22 @@
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="deductionValue"><span jhiTranslate="offerApp.offerPriceRule.deductionValue">Deduction Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="allocationLimit"><span jhiTranslate="offerApp.offerPriceRule.allocationLimit">Allocation Limit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="oncePerCustomer"><span jhiTranslate="offerApp.offerPriceRule.oncePerCustomer">Once Per Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="usageLimit"><span jhiTranslate="offerApp.offerPriceRule.usageLimit">Usage Limit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="startDate"><span jhiTranslate="offerApp.offerPriceRule.startDate">Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="endDate"><span jhiTranslate="offerApp.offerPriceRule.endDate">End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="createdDate"><span jhiTranslate="offerApp.offerPriceRule.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="updatedDate"><span jhiTranslate="offerApp.offerPriceRule.updatedDate">Updated Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="prerequisiteSubtotalRange"><span jhiTranslate="offerApp.offerPriceRule.prerequisiteSubtotalRange">Prerequisite Subtotal Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="prerequisiteQuantityRange"><span jhiTranslate="offerApp.offerPriceRule.prerequisiteQuantityRange">Prerequisite Quantity Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="prerequisiteShippingPriceRange"><span jhiTranslate="offerApp.offerPriceRule.prerequisiteShippingPriceRange">Prerequisite Shipping Price Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="targetTypeId"><span jhiTranslate="offerApp.offerPriceRule.targetType">Target Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="deductionValueTypeId"><span jhiTranslate="offerApp.offerPriceRule.deductionValueType">Deduction Value Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="customerSelectionId"><span jhiTranslate="offerApp.offerPriceRule.customerSelection">Customer Selection</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="allocationMethodId"><span jhiTranslate="offerApp.offerPriceRule.allocationMethod">Allocation Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deductionValue"><span>Deduction Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="allocationLimit"><span>Allocation Limit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="oncePerCustomer"><span>Once Per Customer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usageLimit"><span>Usage Limit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startDate"><span>Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endDate"><span>End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDate"><span>Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updatedDate"><span>Updated Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prerequisiteSubtotalRange"><span>Prerequisite Subtotal Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prerequisiteQuantityRange"><span>Prerequisite Quantity Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prerequisiteShippingPriceRange"><span>Prerequisite Shipping Price Range</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="targetTypeId"><span>Target Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deductionValueTypeId"><span>Deduction Value Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="customerSelectionId"><span>Customer Selection</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="allocationMethodId"><span>Allocation Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -88,13 +88,13 @@
                                 [routerLink]="['/price-rule', priceRule.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/price-rule', priceRule.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Edit</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'price-rule/'+ priceRule.id + '/delete'} }]"
@@ -102,7 +102,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Delete</span>
                         </button>
                     </div>
                 </td>

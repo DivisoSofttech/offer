@@ -7,7 +7,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190723070536",
+    "changelogDate": "20200101045116",
     "javadoc": "OrderRule entity.\norder rule of the offer\n@author Anjali",
     "entityTableName": "order_rule",
     "dto": "mapstruct",

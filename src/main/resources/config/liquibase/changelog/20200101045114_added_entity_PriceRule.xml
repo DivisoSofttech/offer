@@ -17,7 +17,7 @@
     <!--
         Added the entity PriceRule.
     -->
-    <changeSet id="20190723070534-1" author="jhipster">
+    <changeSet id="20200101045114-1" author="jhipster">
         <createTable tableName="price_rule" remarks="PriceRule entity. represents the price rule of the offer @author Anjali">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

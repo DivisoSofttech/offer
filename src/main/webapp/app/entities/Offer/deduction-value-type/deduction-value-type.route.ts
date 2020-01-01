@@ -39,7 +39,7 @@ export const deductionValueTypeRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerDeductionValueType.home.title'
+      pageTitle: 'DeductionValueTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const deductionValueTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerDeductionValueType.home.title'
+      pageTitle: 'DeductionValueTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const deductionValueTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerDeductionValueType.home.title'
+      pageTitle: 'DeductionValueTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const deductionValueTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerDeductionValueType.home.title'
+      pageTitle: 'DeductionValueTypes'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const deductionValueTypePopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerDeductionValueType.home.title'
+      pageTitle: 'DeductionValueTypes'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

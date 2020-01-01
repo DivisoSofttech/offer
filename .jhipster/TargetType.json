@@ -8,7 +8,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190723070540",
+    "changelogDate": "20200101045120",
     "javadoc": "TargetType entity.\n@author Anjali",
     "entityTableName": "target_type",
     "dto": "mapstruct",

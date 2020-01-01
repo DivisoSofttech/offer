@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Offer.
     -->
-    <changeSet id="20190723070533-2" author="jhipster">
+    <changeSet id="20200101045113-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="price_rule_id"
                                  baseTableName="offer"

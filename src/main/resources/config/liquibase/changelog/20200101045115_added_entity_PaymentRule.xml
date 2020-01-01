@@ -17,7 +17,7 @@
     <!--
         Added the entity PaymentRule.
     -->
-    <changeSet id="20190723070535-1" author="jhipster">
+    <changeSet id="20200101045115-1" author="jhipster">
         <createTable tableName="payment_rule" remarks="PaymentRule entity. payment rules of the offer @author Anjali">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

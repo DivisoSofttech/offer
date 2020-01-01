@@ -39,7 +39,7 @@ export const orderRuleRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerOrderRule.home.title'
+      pageTitle: 'OrderRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const orderRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOrderRule.home.title'
+      pageTitle: 'OrderRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const orderRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOrderRule.home.title'
+      pageTitle: 'OrderRules'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const orderRuleRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOrderRule.home.title'
+      pageTitle: 'OrderRules'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const orderRulePopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerOrderRule.home.title'
+      pageTitle: 'OrderRules'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

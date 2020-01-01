@@ -28,8 +28,8 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 /**
  * REST controller for managing AllocationMethod.
  */
-//@RestController
-//@RequestMapping("/api")
+@RestController
+@RequestMapping("/api")
 public class AllocationMethodResource {
 
     private final Logger log = LoggerFactory.getLogger(AllocationMethodResource.class);

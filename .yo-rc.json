@@ -1,8 +1,7 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.diviso.graeshoppe.offer",
-      "nativeLanguage": "en"
+      "packageName": "com.diviso.graeshoppe.offer"
     },
     "jhipsterVersion": "5.6.1",
     "applicationType": "microservice",
@@ -21,15 +20,11 @@
     "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "NGQzM2I3OGIzM2FmY2Q5ZmQ3OTdiNTMyNGQ4MzljMzM0NzlhMTk4NzA2ZDVjMzI1NjgwNTNiM2UzNTIyMjUzNGY5ZGU0MDA4NDUxMGE5ZjI4NTE2NDcwM2ZhZjFlYjk3ZjU0YTc2Mzc0ZjcyYjJkZWFmNWU2NTk4OTdkZDBlY2E=",
+    "jwtSecretKey": "YTE5MTJmNzJkMjczZDRjZGM0OTk2ZmVlYmMwMmRhNWI2ZWU4YjA1MjVmNjdmNjEyZDAzZjQ5YjcwNDJjMDdkNmY5Yjg1NDllNjlmNzAyNzcxMDhlYTIxNGU3NDFjNjc2YjNjOWI0MzM1N2JmODM5YjgxM2VhODEyZWMyZjFlY2U=",
     "testFrameworks": [],
     "jhiPrefix": "jhi",
-    "enableTranslation": true,
+    "enableTranslation": false,
     "clientPackageManager": "npm",
-    "nativeLanguage": "en",
-    "languages": [
-      "en"
-    ],
     "skipClient": true,
     "skipUserManagement": true
   }

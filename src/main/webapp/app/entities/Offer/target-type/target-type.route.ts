@@ -39,7 +39,7 @@ export const targetTypeRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'offerApp.offerTargetType.home.title'
+      pageTitle: 'TargetTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const targetTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerTargetType.home.title'
+      pageTitle: 'TargetTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const targetTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerTargetType.home.title'
+      pageTitle: 'TargetTypes'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const targetTypeRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerTargetType.home.title'
+      pageTitle: 'TargetTypes'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const targetTypePopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'offerApp.offerTargetType.home.title'
+      pageTitle: 'TargetTypes'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

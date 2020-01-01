@@ -5,15 +5,9 @@
     <groupId>com.diviso.graeshoppe.offer</groupId>
     <artifactId>offer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>  
+    <packaging>war</packaging>
     <name>Offer</name>
 
-	<!-- <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
-    </parent> -->
-	
     <repositories>
         <!-- jhipster-needle-maven-repository -->
     </repositories>
@@ -424,7 +418,6 @@
     <version>6.5.0.Final</version>
     <type>pom</type>
 </dependency>
-
     </dependencies>
 
     <build>
@@ -450,11 +443,6 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
-  				<groupId>org.codehaus.mojo</groupId>
-  				<artifactId>exec-maven-plugin</artifactId>
- 				 <version>1.6.0</version>
-			</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -814,12 +802,6 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring-boot.version}</version>
                 </plugin>
-                <!-- <plugin>  
-       			 <groupId>org.kie</groupId>  
-       			 <artifactId>kie-maven-plugin</artifactId>  
-       			 <version>7.24.0.Final</version>  
-       			 <extensions>true</extensions>   
-      		</plugin> -->  
             </plugins>
         </pluginManagement>
     </build>
@@ -852,11 +834,11 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-undertow</artifactId>
                 </dependency>
-                 <dependency>
+                <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-devtools</artifactId>
                     <optional>true</optional>
-                </dependency> 
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -938,7 +920,18 @@
                 Everything should hot reload automatically!
             -->
             <id>cc</id>
-              <build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-undertow</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <optional>true</optional>
+                </dependency>
+            </dependencies>
+            <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -965,6 +958,16 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>default-compile</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>default-testCompile</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>net.alchim31.maven</groupId>

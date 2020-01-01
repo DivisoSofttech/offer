@@ -23,7 +23,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20190723070535",
+    "changelogDate": "20200101045115",
     "javadoc": "PaymentRule entity.\npayment rules of the offer\n@author Anjali",
     "entityTableName": "payment_rule",
     "dto": "mapstruct",
