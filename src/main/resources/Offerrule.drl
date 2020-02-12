@@ -4,12 +4,12 @@ import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.domain.OrderRule;
 import com.diviso.graeshoppe.offer.domain.DeductionValueType;
 import com.diviso.graeshoppe.offer.domain.PriceRule;
-
-rule "SUPER20"
+ 
+ rule "Offer for first and every 10th order"
 	no-loop
 	when 
-		$orderModel : OrderModel(getPromoCode()=='SUPER20') 
-		$orderRule : OrderRule(($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0)
+		$orderModel : OrderModel() 
+		$orderRule : OrderRule(($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0 || $orderModel.getOrderNumber()==1 )
 		$deductionValueType : DeductionValueType(getDeductionValueType()=='Percentage')
 		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());
  	then
@@ -17,13 +17,13 @@ rule "SUPER20"
   	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
   	  	}
   	  	 System.out.println("in drools else condition");
-  	
+  	  	
  end
  
- rule "SUPER10"
+ rule "% off on Selected Days"
 	no-loop
 	when 
-		$orderModel : OrderModel(getPromoCode()=='SUPER10') 
+		$orderModel : OrderModel() 
 		$orderRule : OrderRule(($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0 || $orderModel.getOrderNumber()==1 )
 		$deductionValueType : DeductionValueType(getDeductionValueType()=='Percentage')
 		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());

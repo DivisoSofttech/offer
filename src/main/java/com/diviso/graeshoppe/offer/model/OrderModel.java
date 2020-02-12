@@ -93,4 +93,12 @@ public class OrderModel {
 		this.totalDiscount = totalDiscount;
 	}
 
+	public List<OfferDTO> getAppliedOffers() {
+		return appliedOffers;
+	}
+
+	public void setAppliedOffers(List<OfferDTO> appliedOffers) {
+		this.appliedOffers = appliedOffers;
+	}
+
 }

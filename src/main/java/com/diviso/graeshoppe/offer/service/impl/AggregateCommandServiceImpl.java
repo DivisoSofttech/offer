@@ -247,6 +247,7 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
     	 
 	     Instant instant=Instant.now();
 	     orderModel.setClaimedDate(instant);
+	     log.info("*********claimed date{}",orderModel.getClaimedDate());
 	     
 	     List<Offer> offerList=new ArrayList<Offer>();
 	    	log.info("**********auto offer");		 
