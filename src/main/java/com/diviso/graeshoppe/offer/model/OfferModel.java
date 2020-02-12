@@ -24,6 +24,8 @@ public class OfferModel {
 
     private Long prerequisiteOrderNumber;
     
+    private Long prerequisiteOrderAmount;
+    
     private Instant startDate;
 
     private Instant endDate;
@@ -110,6 +112,14 @@ public class OfferModel {
 
 	public void setStoreId(String storeId) {
 		this.storeId = storeId;
+	}
+
+	public Long getPrerequisiteOrderAmount() {
+		return prerequisiteOrderAmount;
+	}
+
+	public void setPrerequisiteOrderAmount(Long prerequisiteOrderAmount) {
+		this.prerequisiteOrderAmount = prerequisiteOrderAmount;
 	}
 
 	

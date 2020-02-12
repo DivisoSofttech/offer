@@ -4,8 +4,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
-
 public class OrderModel {
 	
 	private String promoCode;
@@ -26,7 +24,7 @@ public class OrderModel {
 	
 	private String storeId;
 	
-	private List<OfferDTO> appliedOffers=new ArrayList<OfferDTO>();
+	private List<ClaimedOfferModel> appliedOffers=new ArrayList<ClaimedOfferModel>();
 	
 	
 	public Double getOrderTotal() {
@@ -93,12 +91,13 @@ public class OrderModel {
 		this.totalDiscount = totalDiscount;
 	}
 
-	public List<OfferDTO> getAppliedOffers() {
+	public List<ClaimedOfferModel> getAppliedOffers() {
 		return appliedOffers;
 	}
 
-	public void setAppliedOffers(List<OfferDTO> appliedOffers) {
+	public void setAppliedOffers(List<ClaimedOfferModel> appliedOffers) {
 		this.appliedOffers = appliedOffers;
 	}
 
+	
 }
