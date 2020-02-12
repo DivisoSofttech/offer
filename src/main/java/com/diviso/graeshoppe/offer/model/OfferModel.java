@@ -1,6 +1,11 @@
 package com.diviso.graeshoppe.offer.model;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import com.diviso.graeshoppe.offer.domain.OfferDay;
 
 /**
  * A Model for the Offer entity.
@@ -23,15 +28,9 @@ public class OfferModel {
 
     private Instant endDate;
     
-    private Long storeId;
+    private String storeId;
     
-	public Long getStoreId() {
-		return storeId;
-	}
-
-	public void setStoreId(Long storeId) {
-		this.storeId = storeId;
-	}
+    private List<String> offerDays=new ArrayList<String>();
 
 	public Long getId() {
 		return id;
@@ -97,5 +96,22 @@ public class OfferModel {
 		this.endDate = endDate;
 	}
 
+	public List<String> getOfferDays() {
+		return offerDays;
+	}
+
+	public void setOfferDays(List<String> offerDays) {
+		this.offerDays = offerDays;
+	}
+
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(String storeId) {
+		this.storeId = storeId;
+	}
+
+	
 	
 }

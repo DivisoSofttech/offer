@@ -69,12 +69,12 @@ public class AggregateQueryResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
     
-    /**
+   /* *//**
      * GET  /offers : get all the offers by storeId.
      *
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of offers in body
-     */
+     *//*
     @GetMapping("/query/offers/get-all-offers-by-storeId/{storeId}")
     @Timed
     public ResponseEntity<List<OfferDTO>> getAllOffersByStoreId(Pageable pageable,@PathVariable Long storeId) {
@@ -83,7 +83,7 @@ public class AggregateQueryResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/query/offers/get-all-offers");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
-    
+    */
     
     
     /**

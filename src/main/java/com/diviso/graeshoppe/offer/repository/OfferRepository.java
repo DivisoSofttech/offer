@@ -16,5 +16,5 @@ import org.springframework.stereotype.Repository;
 public interface OfferRepository extends JpaRepository<Offer, Long> {
 
 	public Optional<Offer> findByPromoCode(String promoCode);
-
+	
 }

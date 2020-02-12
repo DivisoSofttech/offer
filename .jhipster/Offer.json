@@ -74,6 +74,12 @@
             "relationshipName": "countries",
             "otherEntityName": "country",
             "otherEntityRelationshipName": "offer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "offerDays",
+            "otherEntityName": "offerDay",
+            "otherEntityRelationshipName": "offer"
         }
     ],
     "changelogDate": "20200101045113",

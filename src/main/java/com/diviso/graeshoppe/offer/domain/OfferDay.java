@@ -10,14 +10,14 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Store entity.
+ * OfferDay entity.
  * @author Anjali
  */
-@ApiModel(description = "Store entity. @author Anjali")
+@ApiModel(description = "OfferDay entity. @author Anjali")
 @Entity
-@Table(name = "store")
-@Document(indexName = "store")
-public class Store implements Serializable {
+@Table(name = "offer_day")
+@Document(indexName = "offerday")
+public class OfferDay implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,14 +25,11 @@ public class Store implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "store_id")
-    private String storeId;
-
-    @Column(name = "outlet_id")
-    private Long outletId;
+    @Column(name = "day")
+    private String day;
 
     @ManyToOne
-    @JsonIgnoreProperties("stores")
+    @JsonIgnoreProperties("offerDays")
     private Offer offer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -44,37 +41,24 @@ public class Store implements Serializable {
         this.id = id;
     }
 
-    public String getStoreId() {
-        return storeId;
+    public String getDay() {
+        return day;
     }
 
-    public Store storeId(String storeId) {
-        this.storeId = storeId;
+    public OfferDay day(String day) {
+        this.day = day;
         return this;
     }
 
-    public void setStoreId(String storeId) {
-        this.storeId = storeId;
-    }
-
-    public Long getOutletId() {
-        return outletId;
-    }
-
-    public Store outletId(Long outletId) {
-        this.outletId = outletId;
-        return this;
-    }
-
-    public void setOutletId(Long outletId) {
-        this.outletId = outletId;
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public Offer getOffer() {
         return offer;
     }
 
-    public Store offer(Offer offer) {
+    public OfferDay offer(Offer offer) {
         this.offer = offer;
         return this;
     }
@@ -92,11 +76,11 @@ public class Store implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Store store = (Store) o;
-        if (store.getId() == null || getId() == null) {
+        OfferDay offerDay = (OfferDay) o;
+        if (offerDay.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), store.getId());
+        return Objects.equals(getId(), offerDay.getId());
     }
 
     @Override
@@ -106,10 +90,9 @@ public class Store implements Serializable {
 
     @Override
     public String toString() {
-        return "Store{" +
+        return "OfferDay{" +
             "id=" + getId() +
-            ", storeId='" + getStoreId() + "'" +
-            ", outletId=" + getOutletId() +
+            ", day='" + getDay() + "'" +
             "}";
     }
 }

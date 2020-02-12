@@ -14,10 +14,10 @@ rule "SUPER20"
 		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());
  	then
  		modify($orderModel){
-  	  		setOrderDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
+  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
   	  	}
   	  	 System.out.println("in drools else condition");
-  	  	
+  	
  end
  
  rule "SUPER10"
@@ -29,7 +29,7 @@ rule "SUPER20"
 		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());
  	then
  		modify($orderModel){
-  	  		setOrderDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
+  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
   	  	}
   	  	 System.out.println("in drools else condition");
   	  	

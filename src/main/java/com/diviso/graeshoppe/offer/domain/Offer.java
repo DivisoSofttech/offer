@@ -64,6 +64,8 @@ public class Offer implements Serializable {
     private Set<OfferTargetCategory> offerTargetCategories = new HashSet<>();
     @OneToMany(mappedBy = "offer")
     private Set<Country> countries = new HashSet<>();
+    @OneToMany(mappedBy = "offer")
+    private Set<OfferDay> offerDays = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -288,6 +290,31 @@ public class Offer implements Serializable {
 
     public void setCountries(Set<Country> countries) {
         this.countries = countries;
+    }
+
+    public Set<OfferDay> getOfferDays() {
+        return offerDays;
+    }
+
+    public Offer offerDays(Set<OfferDay> offerDays) {
+        this.offerDays = offerDays;
+        return this;
+    }
+
+    public Offer addOfferDays(OfferDay offerDay) {
+        this.offerDays.add(offerDay);
+        offerDay.setOffer(this);
+        return this;
+    }
+
+    public Offer removeOfferDays(OfferDay offerDay) {
+        this.offerDays.remove(offerDay);
+        offerDay.setOffer(null);
+        return this;
+    }
+
+    public void setOfferDays(Set<OfferDay> offerDays) {
+        this.offerDays = offerDays;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

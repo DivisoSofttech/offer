@@ -75,7 +75,7 @@ entity OrderRule{
  * @author Anjali
  */
 entity Store{
-	storeId Long,
+	storeId String,
     outletId Long
 }
 
@@ -122,11 +122,20 @@ entity Country{
     countryCode String
 }
 
+/**
+ * OfferDay entity.
+ * @author Anjali
+ */
+entity OfferDay{
+	day String
+}
+
 relationship OneToMany{
 	Offer{stores} to Store{offer},
     Offer{offerTargets} to OfferTarget{offer},
     Offer{offerTargetCategories} to OfferTargetCategory{offer},
-    Offer{countries} to Country{offer}
+    Offer{countries} to Country{offer},
+	Offer{offerDays} to OfferDay{offer}
 }
 
 relationship OneToOne{

@@ -23,6 +23,7 @@ public interface OfferMapper extends EntityMapper<OfferDTO, Offer> {
     @Mapping(target = "offerTargets", ignore = true)
     @Mapping(target = "offerTargetCategories", ignore = true)
     @Mapping(target = "countries", ignore = true)
+    @Mapping(target = "offerDays", ignore = true)
     Offer toEntity(OfferDTO offerDTO);
 
     default Offer fromId(Long id) {

@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offerDay">
+            <h2><span>Offer Day</span> {{offerDay.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Day</span></dt>
+                <dd>
+                    <span>{{offerDay.day}}</span>
+                </dd>
+                <dt><span>Offer</span></dt>
+                <dd>
+                    <div *ngIf="offerDay.offerId">
+                        <a [routerLink]="['/offer', offerDay.offerId, 'view']">{{offerDay.offerId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offer-day', offerDay.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

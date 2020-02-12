@@ -17,12 +17,22 @@ public interface AggregateCommandService {
      */
 	OfferModel saveOffer(OfferModel offerModel);
     
+   /* *//**
+     * claim the offer.
+     *
+     * @param orderModel the entity to claim the offer
+     * @return the orderModel entity
+     *//*
+    OrderModel claimOffer(OrderModel orderModel);
+    */
     /**
      * claim the offer.
      *
      * @param orderModel the entity to claim the offer
      * @return the orderModel entity
      */
-    OrderModel claimOffer(OrderModel orderModel);
+    public OrderModel claimAutomaticOffer(OrderModel orderModel);
+    
+    
     
 }

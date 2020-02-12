@@ -7,6 +7,8 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -25,12 +27,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.diviso.graeshoppe.offer.domain.DeductionValueType;
 import com.diviso.graeshoppe.offer.domain.Offer;
+import com.diviso.graeshoppe.offer.domain.OfferDay;
 import com.diviso.graeshoppe.offer.domain.OrderRule;
 import com.diviso.graeshoppe.offer.domain.PriceRule;
 import com.diviso.graeshoppe.offer.domain.Store;
 import com.diviso.graeshoppe.offer.model.OfferModel;
 import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.repository.DeductionValueTypeRepository;
+import com.diviso.graeshoppe.offer.repository.OfferDayRepository;
 import com.diviso.graeshoppe.offer.repository.OfferRepository;
 import com.diviso.graeshoppe.offer.repository.OrderRuleRepository;
 import com.diviso.graeshoppe.offer.repository.PriceRuleRepository;
@@ -87,11 +91,12 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
      private final StoreMapper storeMapper;
 
      private final StoreSearchRepository storeSearchRepository;
+     
+     private final OfferDayRepository offerDayRepository;
 
 	 private static final String drlFile = "Offerrule.drl";
 
 	 private KieContainer kieContainer;
-	
 	
 
 	public AggregateCommandServiceImpl(OfferRepository offerRepository, OfferMapper offerMapper,
@@ -102,7 +107,8 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 			DeductionValueTypeRepository deductionValueTypeRepository,
 			DeductionValueTypeMapper deductionValueTypeMapper,
 			DeductionValueTypeSearchRepository deductionValueTypeSearchRepository, StoreRepository storeRepository,
-			StoreMapper storeMapper, StoreSearchRepository storeSearchRepository, KieContainer kieContainer) {
+			StoreMapper storeMapper, StoreSearchRepository storeSearchRepository, OfferDayRepository offerDayRepository,
+			KieContainer kieContainer) {
 		super();
 		this.offerRepository = offerRepository;
 		this.offerMapper = offerMapper;
@@ -119,6 +125,7 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 		this.storeRepository = storeRepository;
 		this.storeMapper = storeMapper;
 		this.storeSearchRepository = storeSearchRepository;
+		this.offerDayRepository = offerDayRepository;
 		this.kieContainer = kieContainer;
 	}
 
@@ -165,17 +172,28 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 		 	offerModel.setStoreId(savedStore.getStoreId());
 		 	}
 		 	
+		 	if(!offerModel.getOfferDays().isEmpty()) {
+		 		log.info("offerday list{}",offerModel.getOfferDays());
+		 		for(String day:offerModel.getOfferDays()) {
+		 			OfferDay offerDay=new OfferDay();
+			 		
+		 			offerDay.setDay(day);
+		 			offerDay.setOffer(savedOffer);
+		 			OfferDay savedOfferDay=offerDayRepository.save(offerDay);
+		 		}
+		 	}
+		 	
 		 	offerModel.setId(savedOffer.getId());
 		 	
 	        return offerModel;
 	 }
 
-	 /**
+	/* *//**
 	     * claim the offer.
 	     *
 	     * @param orderModel the entity to save
 	     * @return the orderModel entity to claim the offer 
-	     */
+	     *//*
 	@Override
 	public OrderModel claimOffer(OrderModel orderModel) {
 		
@@ -214,6 +232,68 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 	    	 log.debug("****no valid offer");
 	     }
 	     return orderModel;	
-	}
+	}*/
 	    
+	/**
+     * claim the Automatic offer.
+     *
+     * @param orderModel the entity to save
+     * @return the orderModel entity to claim the offer 
+     */
+    @Override
+    public OrderModel claimAutomaticOffer(OrderModel orderModel) {
+	
+    	 KieBase kBase=kieContainer.getKieBase();
+    	 
+	     Instant instant=Instant.now();
+	     orderModel.setClaimedDate(instant);
+	     
+	     List<Offer> offerList=new ArrayList<Offer>();
+	    	log.info("**********auto offer");		 
+		    	
+	    	List<Store> storeList=storeRepository.findByStoreId(orderModel.getStoreId());
+	    	
+	    	for(Store store:storeList) {	
+	    		Optional<Offer> offer=offerRepository.findById(store.getOffer().getId());
+	    					
+	    		log.info("*******offer id{}",store.getOffer().getId());
+	    		if(offer.isPresent()) {
+	    			if(offer.get().getPriceRule()!=null){
+	    		    	Optional<PriceRule> priceRule=priceRuleRepository.findAutomaticOfferPriceRule(offer.get().getPriceRule().getId());
+	    		    	if(priceRule.isPresent()) {
+	    		    		log.info("**********insert to session");
+	    			    	
+	    		    		KieSession ksession = kBase.newKieSession(); 
+	    		    		ksession.insert(orderModel);
+	    		    		
+	    		    		Optional<OrderRule> orderRule=orderRuleRepository.findById(offer.get().getOrderRule().getId());
+	    		    		//Optional<OfferType> offerType= offerTypeRepository.findById(offer.get().getOfferType().getId());
+	    		    		
+	    		    		Optional<DeductionValueType> deductionValueType=deductionValueTypeRepository.findById(priceRule.get().getDeductionValueType().getId());
+	    		    		
+	    		    		ksession.insert(offer.get());
+	    	    			ksession.insert(priceRule.get());
+	    		    		ksession.insert(orderRule.get());
+	    		    		ksession.insert(deductionValueType.get());
+	    	    		   
+	    	    			int rulesFired=ksession.fireAllRules();	
+	    	     		    
+	    	    			log.info("******************rulesFired{}",rulesFired);
+	    	    			if(orderModel.getRuleDiscountAmount()!=null && rulesFired!=0) {
+	    	     				orderModel.setTotalDiscount(orderModel.getTotalDiscount()+orderModel.getRuleDiscountAmount());
+	    	     					
+	    	     			}
+	    	     		 ksession.dispose(); 
+	    		    	}    	
+	    			}  
+	    		}
+	    	}
+	    		if(orderModel.getTotalDiscount()!=0){
+	    			orderModel.setOrderDiscountTotal(orderModel.getOrderTotal()-orderModel.getTotalDiscount());
+	    	    }
+	     
+	     return orderModel;	
+    	
+}
+
 }

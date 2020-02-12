@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { StoreService } from 'app/entities/Offer/store/store.service';
-import { IStore, Store } from 'app/shared/model/Offer/store.model';
+import { OfferDayService } from 'app/entities/Offer/offer-day/offer-day.service';
+import { IOfferDay, OfferDay } from 'app/shared/model/Offer/offer-day.model';
 
 describe('Service Tests', () => {
-  describe('Store Service', () => {
+  describe('OfferDay Service', () => {
     let injector: TestBed;
-    let service: StoreService;
+    let service: OfferDayService;
     let httpMock: HttpTestingController;
-    let elemDefault: IStore;
+    let elemDefault: IOfferDay;
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [HttpClientTestingModule]
       });
       injector = getTestBed();
-      service = injector.get(StoreService);
+      service = injector.get(OfferDayService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Store(0, 'AAAAAAA', 0);
+      elemDefault = new OfferDay(0, 'AAAAAAA');
     });
 
     describe('Service methods', async () => {
@@ -36,7 +36,7 @@ describe('Service Tests', () => {
         req.flush(JSON.stringify(returnedFromService));
       });
 
-      it('should create a Store', async () => {
+      it('should create a OfferDay', async () => {
         const returnedFromService = Object.assign(
           {
             id: 0
@@ -45,18 +45,17 @@ describe('Service Tests', () => {
         );
         const expected = Object.assign({}, returnedFromService);
         service
-          .create(new Store(null))
+          .create(new OfferDay(null))
           .pipe(take(1))
           .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
         const req = httpMock.expectOne({ method: 'POST' });
         req.flush(JSON.stringify(returnedFromService));
       });
 
-      it('should update a Store', async () => {
+      it('should update a OfferDay', async () => {
         const returnedFromService = Object.assign(
           {
-            storeId: 'BBBBBB',
-            outletId: 1
+            day: 'BBBBBB'
           },
           elemDefault
         );
@@ -70,11 +69,10 @@ describe('Service Tests', () => {
         req.flush(JSON.stringify(returnedFromService));
       });
 
-      it('should return a list of Store', async () => {
+      it('should return a list of OfferDay', async () => {
         const returnedFromService = Object.assign(
           {
-            storeId: 'BBBBBB',
-            outletId: 1
+            day: 'BBBBBB'
           },
           elemDefault
         );
@@ -91,7 +89,7 @@ describe('Service Tests', () => {
         httpMock.verify();
       });
 
-      it('should delete a Store', async () => {
+      it('should delete a OfferDay', async () => {
         const rxPromise = service.delete(123).subscribe(resp => expect(resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });

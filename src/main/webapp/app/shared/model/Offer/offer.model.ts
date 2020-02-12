@@ -3,6 +3,7 @@ import { IStore } from 'app/shared/model/Offer/store.model';
 import { IOfferTarget } from 'app/shared/model/Offer/offer-target.model';
 import { IOfferTargetCategory } from 'app/shared/model/Offer/offer-target-category.model';
 import { ICountry } from 'app/shared/model/Offer/country.model';
+import { IOfferDay } from 'app/shared/model/Offer/offer-day.model';
 
 export interface IOffer {
   id?: number;
@@ -19,6 +20,7 @@ export interface IOffer {
   offerTargets?: IOfferTarget[];
   offerTargetCategories?: IOfferTargetCategory[];
   countries?: ICountry[];
+  offerDays?: IOfferDay[];
 }
 
 export class Offer implements IOffer {
@@ -36,6 +38,7 @@ export class Offer implements IOffer {
     public stores?: IStore[],
     public offerTargets?: IOfferTarget[],
     public offerTargetCategories?: IOfferTargetCategory[],
-    public countries?: ICountry[]
+    public countries?: ICountry[],
+    public offerDays?: IOfferDay[]
   ) {}
 }

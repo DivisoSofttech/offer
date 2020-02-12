@@ -15,18 +15,14 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Store.
+        Added the entity OfferDay.
     -->
-    <changeSet id="20200101045117-1" author="jhipster">
-        <createTable tableName="store" remarks="Store entity. @author Anjali">
+    <changeSet id="20200211051903-1" author="jhipster">
+        <createTable tableName="offer_day" remarks="OfferDay entity. @author Anjali">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="store_id" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="outlet_id" type="bigint">
+            <column name="day" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 

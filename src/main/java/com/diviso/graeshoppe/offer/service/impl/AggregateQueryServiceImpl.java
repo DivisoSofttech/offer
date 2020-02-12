@@ -96,12 +96,12 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
             .map(offerMapper::toDto);
     }
     
-    /**
+ /*   *//**
      * Get all offers by storeId.
      *
      * @param pageable the pagination information
      * @return the list of entities
-     */
+     *//*
 	@Override
 	public Page<OfferDTO> findAllOffersByStoreId(Pageable pageable, Long storeId) {
 		 log.debug("Request to get a page of Offers by storeId");
@@ -122,7 +122,7 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
 		 Page<OfferDTO> offerDtos = new PageImpl<OfferDTO>(offerDtoList, pageable, offerDtoList.size());
 			
 		return offerDtos;
-	}
+	}*/
     
     /**
      * Get all the offer deductionValueTypes.

@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20200101045120_added_entity_TargetType.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200101045121_added_entity_AllocationMethod.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200101045122_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200211051903_added_entity_OfferDay.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200101045111_added_entity_constraints_OfferTarget.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200101045112_added_entity_constraints_OfferTargetCategory.xml" relativeToChangelogFile="false"/>
@@ -24,5 +25,6 @@
     <include file="config/liquibase/changelog/20200101045114_added_entity_constraints_PriceRule.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200101045117_added_entity_constraints_Store.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200101045122_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200211051903_added_entity_constraints_OfferDay.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

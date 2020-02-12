@@ -1,13 +1,9 @@
 {
-    "name": "Store",
+    "name": "OfferDay",
     "fields": [
         {
-            "fieldName": "storeId",
+            "fieldName": "day",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "outletId",
-            "fieldType": "Long"
         }
     ],
     "relationships": [
@@ -18,9 +14,9 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20200101045117",
-    "javadoc": "Store entity.\n@author Anjali",
-    "entityTableName": "store",
+    "changelogDate": "20200211051903",
+    "javadoc": "OfferDay entity.\n@author Anjali",
+    "entityTableName": "offer_day",
     "dto": "mapstruct",
     "pagination": "pagination",
     "service": "serviceImpl",

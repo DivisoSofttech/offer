@@ -1,6 +1,10 @@
 package com.diviso.graeshoppe.offer.model;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
 
 public class OrderModel {
 	
@@ -12,9 +16,18 @@ public class OrderModel {
 
 	private Double orderTotal;
 	
-	private Double orderDiscountAmount;
+	//private Double orderDiscountAmount;
 	
 	private Double orderDiscountTotal;
+	
+	private Double ruleDiscountAmount;
+	
+	private double totalDiscount=0;
+	
+	private String storeId;
+	
+	private List<OfferDTO> appliedOffers=new ArrayList<OfferDTO>();
+	
 	
 	public Double getOrderTotal() {
 		return orderTotal;
@@ -22,14 +35,6 @@ public class OrderModel {
 
 	public void setOrderTotal(Double orderTotal) {
 		this.orderTotal = orderTotal;
-	}
-
-	public Double getOrderDiscountAmount() {
-		return orderDiscountAmount;
-	}
-
-	public void setOrderDiscountAmount(Double orderDiscountAmount) {
-		this.orderDiscountAmount = orderDiscountAmount;
 	}
 
 	public Double getOrderDiscountTotal() {
@@ -62,6 +67,30 @@ public class OrderModel {
 
 	public void setOrderNumber(Long orderNumber) {
 		this.orderNumber = orderNumber;
+	}
+
+	public String getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(String storeId) {
+		this.storeId = storeId;
+	}
+
+	public Double getRuleDiscountAmount() {
+		return ruleDiscountAmount;
+	}
+
+	public void setRuleDiscountAmount(Double ruleDiscountAmount) {
+		this.ruleDiscountAmount = ruleDiscountAmount;
+	}
+
+	public double getTotalDiscount() {
+		return totalDiscount;
+	}
+
+	public void setTotalDiscount(double totalDiscount) {
+		this.totalDiscount = totalDiscount;
 	}
 
 }

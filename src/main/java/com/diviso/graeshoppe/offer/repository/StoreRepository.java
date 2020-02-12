@@ -2,9 +2,10 @@ package com.diviso.graeshoppe.offer.repository;
 
 import com.diviso.graeshoppe.offer.domain.Store;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 
@@ -15,5 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
-	Page<Store> findByStoreId(Pageable pageable,Long storeId);
+	 @Query("SELECT s FROM Store s where s.storeId = :storeId") 
+	 List<Store> findByStoreId(@Param("storeId") String storeId);
+	
 }

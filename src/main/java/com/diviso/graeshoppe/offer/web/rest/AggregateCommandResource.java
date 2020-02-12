@@ -72,7 +72,7 @@ public class AggregateCommandResource {
 	    @Timed
 	    public ResponseEntity<OrderModel> claimOffer(@RequestBody OrderModel orderModel) throws URISyntaxException {
 	        log.debug("REST request to claim Offer : {}", orderModel.getPromoCode());
-	        OrderModel offerClaimedModel=aggregateCommandService.claimOffer(orderModel);
+	        OrderModel offerClaimedModel=aggregateCommandService.claimAutomaticOffer(orderModel);
 	        
 	        return ResponseEntity.created(new URI("/api/command/offers/claim-offer/" + offerClaimedModel.getOrderDiscountTotal()))
 	                .body(offerClaimedModel);

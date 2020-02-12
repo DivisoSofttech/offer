@@ -48,8 +48,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = OfferApp.class)
 public class StoreResourceIntTest {
 
-    private static final Long DEFAULT_STORE_ID = 1L;
-    private static final Long UPDATED_STORE_ID = 2L;
+    private static final String DEFAULT_STORE_ID = "AAAAAAAAAA";
+    private static final String UPDATED_STORE_ID = "BBBBBBBBBB";
 
     private static final Long DEFAULT_OUTLET_ID = 1L;
     private static final Long UPDATED_OUTLET_ID = 2L;
@@ -173,7 +173,7 @@ public class StoreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(store.getId().intValue())))
-            .andExpect(jsonPath("$.[*].storeId").value(hasItem(DEFAULT_STORE_ID.intValue())))
+            .andExpect(jsonPath("$.[*].storeId").value(hasItem(DEFAULT_STORE_ID.toString())))
             .andExpect(jsonPath("$.[*].outletId").value(hasItem(DEFAULT_OUTLET_ID.intValue())));
     }
     
@@ -188,7 +188,7 @@ public class StoreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(store.getId().intValue()))
-            .andExpect(jsonPath("$.storeId").value(DEFAULT_STORE_ID.intValue()))
+            .andExpect(jsonPath("$.storeId").value(DEFAULT_STORE_ID.toString()))
             .andExpect(jsonPath("$.outletId").value(DEFAULT_OUTLET_ID.intValue()));
     }
 
@@ -288,7 +288,7 @@ public class StoreResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(store.getId().intValue())))
-            .andExpect(jsonPath("$.[*].storeId").value(hasItem(DEFAULT_STORE_ID.intValue())))
+            .andExpect(jsonPath("$.[*].storeId").value(hasItem(DEFAULT_STORE_ID)))
             .andExpect(jsonPath("$.[*].outletId").value(hasItem(DEFAULT_OUTLET_ID.intValue())));
     }
 

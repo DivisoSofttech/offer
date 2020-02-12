@@ -1,10 +1,10 @@
 export interface IStore {
   id?: number;
-  storeId?: number;
+  storeId?: string;
   outletId?: number;
   offerId?: number;
 }
 
 export class Store implements IStore {
-  constructor(public id?: number, public storeId?: number, public outletId?: number, public offerId?: number) {}
+  constructor(public id?: number, public storeId?: string, public outletId?: number, public offerId?: number) {}
 }
