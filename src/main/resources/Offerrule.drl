@@ -4,33 +4,45 @@ import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.domain.OrderRule;
 import com.diviso.graeshoppe.offer.domain.DeductionValueType;
 import com.diviso.graeshoppe.offer.domain.PriceRule;
+import com.diviso.graeshoppe.offer.domain.OfferDay;
  
  rule "Offer for first and every 10th order"
 	no-loop
 	when 
 		$orderModel : OrderModel() 
-		$orderRule : OrderRule(($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0 || $orderModel.getOrderNumber()==1 )
+		$orderRule : OrderRule((($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0 || $orderModel.getOrderNumber()==1) && (getPrerequisiteOrderNumber()!=null) &&($orderModel.getOrderNumber()!=null))
 		$deductionValueType : DeductionValueType(getDeductionValueType()=='Percentage')
 		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());
  	then
  		modify($orderModel){
-  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
+  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100),
+  	  		setOfferProvider($orderModel.getStoreId());
   	  	}
   	  	 System.out.println("in drools else condition");
+  	  	 System.out.println("Store offer");
+  	  	 System.out.println("Store offer rule dis"+$orderModel.getRuleDiscountAmount());
   	  	
  end
  
  rule "% off on Selected Days"
 	no-loop
 	when 
-		$orderModel : OrderModel() 
-		$orderRule : OrderRule(($orderModel.getOrderNumber() % $orderRule.getPrerequisiteOrderNumber())==0 || $orderModel.getOrderNumber()==1 )
+		$offerDay : OfferDay();
+		$orderModel : OrderModel((getOfferClaimedDay().equalsIgnoreCase($offerDay.getDay()))==true)
 		$deductionValueType : DeductionValueType(getDeductionValueType()=='Percentage')
-		$priceRule : PriceRule(getStartDate() < $orderModel.getClaimedDate(),getEndDate() > $orderModel.getClaimedDate());
+		$priceRule : PriceRule()
  	then
  		modify($orderModel){
-  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100);
+  	  		setRuleDiscountAmount(($priceRule.getDeductionValue()*$orderModel.getOrderTotal())/100),
+  	  		setOfferProvider("FEXP");
   	  	}
   	  	 System.out.println("in drools else condition");
+  	  	 System.out.println("Food exp offer");
+  	  	 System.out.println("getOfferClaimedDay********"+$orderModel.getOfferClaimedDay());
+  	 
+  	  	 System.out.println("$offerDay getDay ********"+$offerDay.getDay());
+  	  	  System.out.println("Food exp offer"+$orderModel.getRuleDiscountAmount());
   	  	
  end
+ 
+ 

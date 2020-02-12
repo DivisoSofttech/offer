@@ -26,6 +26,9 @@ public class OrderModel {
 	
 	private List<ClaimedOfferModel> appliedOffers=new ArrayList<ClaimedOfferModel>();
 	
+	private String offerClaimedDay;
+	
+	private String offerProvider;
 	
 	public Double getOrderTotal() {
 		return orderTotal;
@@ -97,6 +100,22 @@ public class OrderModel {
 
 	public void setAppliedOffers(List<ClaimedOfferModel> appliedOffers) {
 		this.appliedOffers = appliedOffers;
+	}
+
+	public String getOfferClaimedDay() {
+		return offerClaimedDay;
+	}
+
+	public void setOfferClaimedDay(String offerClaimedDay) {
+		this.offerClaimedDay = offerClaimedDay;
+	}
+
+	public String getOfferProvider() {
+		return offerProvider;
+	}
+
+	public void setOfferProvider(String offerProvider) {
+		this.offerProvider = offerProvider;
 	}
 
 	

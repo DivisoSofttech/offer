@@ -1,7 +1,9 @@
 package com.diviso.graeshoppe.offer.service.impl;
 
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
@@ -31,6 +33,7 @@ import com.diviso.graeshoppe.offer.domain.OfferDay;
 import com.diviso.graeshoppe.offer.domain.OrderRule;
 import com.diviso.graeshoppe.offer.domain.PriceRule;
 import com.diviso.graeshoppe.offer.domain.Store;
+import com.diviso.graeshoppe.offer.model.ClaimedOfferModel;
 import com.diviso.graeshoppe.offer.model.OfferModel;
 import com.diviso.graeshoppe.offer.model.OrderModel;
 import com.diviso.graeshoppe.offer.repository.DeductionValueTypeRepository;
@@ -244,20 +247,19 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
     public OrderModel claimAutomaticOffer(OrderModel orderModel) {
 	
     	 KieBase kBase=kieContainer.getKieBase();
+    	
+    	 DayOfWeek day=orderModel.getClaimedDate().atOffset(ZoneOffset.UTC).getDayOfWeek();
+    	 orderModel.setOfferClaimedDay(day.name());
     	 
-	     Instant instant=Instant.now();
-	     orderModel.setClaimedDate(instant);
-	     log.info("*********claimed date{}",orderModel.getClaimedDate());
-	     
-	     List<Offer> offerList=new ArrayList<Offer>();
-	    	log.info("**********auto offer");		 
-		    	
+    	 	List<Offer> offerList=new ArrayList<Offer>();
+    	    List<ClaimedOfferModel> claimedOfferList=new ArrayList<ClaimedOfferModel>();
+    		
+    	 	//ClaimedOfferModel claimedOffer=new ClaimedOfferModel();
 	    	List<Store> storeList=storeRepository.findByStoreId(orderModel.getStoreId());
 	    	
 	    	for(Store store:storeList) {	
 	    		Optional<Offer> offer=offerRepository.findById(store.getOffer().getId());
-	    					
-	    		log.info("*******offer id{}",store.getOffer().getId());
+
 	    		if(offer.isPresent()) {
 	    			if(offer.get().getPriceRule()!=null){
 	    		    	Optional<PriceRule> priceRule=priceRuleRepository.findAutomaticOfferPriceRule(offer.get().getPriceRule().getId());
@@ -276,12 +278,31 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 	    	    			ksession.insert(priceRule.get());
 	    		    		ksession.insert(orderRule.get());
 	    		    		ksession.insert(deductionValueType.get());
+	    		    		//ksession.insert(claimedOffer);
+	    		    		
+	    		    		List<OfferDay> offerDayList=offerDayRepository.findAllByOfferId(offer.get().getId());
+	    		    		
+	    		    		if(!offerDayList.isEmpty()) {
+	    		    			for(OfferDay offerDay:offerDayList) {
+	    		    				ksession.insert(offerDay);
+	    		    			}
+	    		    		}
 	    	    		   
 	    	    			int rulesFired=ksession.fireAllRules();	
 	    	     		    
 	    	    			log.info("******************rulesFired{}",rulesFired);
 	    	    			if(orderModel.getRuleDiscountAmount()!=null && rulesFired!=0) {
-	    	     				orderModel.setTotalDiscount(orderModel.getTotalDiscount()+orderModel.getRuleDiscountAmount());
+	    	    				ClaimedOfferModel claimedOffer=new ClaimedOfferModel();
+	    	    				
+	    	    				claimedOffer.setDescription(offer.get().getDescription());
+	    	    				claimedOffer.setPromoCode(offer.get().getPromoCode());
+	    	    				claimedOffer.setOfferDiscountAmount(orderModel.getRuleDiscountAmount());
+	    	    				claimedOffer.setOfferProvider(orderModel.getOfferProvider());
+	    	    				claimedOffer.setDeductionValueType(deductionValueType.get().getDeductionValueType());
+	    	    				claimedOffer.setDeductionValue(priceRule.get().getDeductionValue());
+	    	    				
+	    	    				claimedOfferList.add(claimedOffer);
+	    	    				orderModel.setTotalDiscount(orderModel.getTotalDiscount()+orderModel.getRuleDiscountAmount());
 	    	     					
 	    	     			}
 	    	     		 ksession.dispose(); 
@@ -291,6 +312,8 @@ public class AggregateCommandServiceImpl implements AggregateCommandService{
 	    	}
 	    		if(orderModel.getTotalDiscount()!=0){
 	    			orderModel.setOrderDiscountTotal(orderModel.getOrderTotal()-orderModel.getTotalDiscount());
+	    			orderModel.setAppliedOffers(claimedOfferList);
+     				
 	    	    }
 	     
 	     return orderModel;	

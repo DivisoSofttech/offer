@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.diviso.graeshoppe.offer.service.dto.DeductionValueTypeDTO;
 import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
+import com.diviso.graeshoppe.offer.service.dto.OfferDayDTO;
 
 /**
  * Service Interface for managing Offer queries.
@@ -44,5 +45,14 @@ public interface AggregateQueryService {
      * @return the list of entities
      */
     Page<DeductionValueTypeDTO> findAllDeductionValueTypes(Pageable pageable);
+    
+     /**
+     * Get all OfferDayDTO by offerId.
+     *
+     * @param pageable the pagination information
+     * @return the list of entities
+     */
+    Page<OfferDayDTO> findAllOfferDaysByOfferId(Pageable pageable,Long offerId);
+    
 
 }

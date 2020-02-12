@@ -15,7 +15,7 @@ public class ClaimedOfferModel {
 	 
 	 private String offerProvider;
 	 
-	 private Long deduction_value_type_id;
+	 private String deductionValueType;
 		
 	 private Long deductionValue;
 
@@ -51,19 +51,19 @@ public class ClaimedOfferModel {
 		this.offerProvider = offerProvider;
 	}
 
-	public Long getDeduction_value_type_id() {
-		return deduction_value_type_id;
-	}
-
-	public void setDeduction_value_type_id(Long deduction_value_type_id) {
-		this.deduction_value_type_id = deduction_value_type_id;
-	}
-
 	public Long getDeductionValue() {
 		return deductionValue;
 	}
 
 	public void setDeductionValue(Long deductionValue) {
 		this.deductionValue = deductionValue;
+	}
+
+	public String getDeductionValueType() {
+		return deductionValueType;
+	}
+
+	public void setDeductionValueType(String deductionValueType) {
+		this.deductionValueType = deductionValueType;
 	}
 }

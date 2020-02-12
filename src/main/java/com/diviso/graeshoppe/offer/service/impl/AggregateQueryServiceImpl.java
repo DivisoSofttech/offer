@@ -12,7 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.diviso.graeshoppe.offer.domain.OfferDay;
 import com.diviso.graeshoppe.offer.repository.DeductionValueTypeRepository;
+import com.diviso.graeshoppe.offer.repository.OfferDayRepository;
 import com.diviso.graeshoppe.offer.repository.OfferRepository;
 import com.diviso.graeshoppe.offer.repository.StoreRepository;
 import com.diviso.graeshoppe.offer.repository.search.DeductionValueTypeSearchRepository;
@@ -20,8 +22,10 @@ import com.diviso.graeshoppe.offer.repository.search.OfferSearchRepository;
 import com.diviso.graeshoppe.offer.service.AggregateQueryService;
 import com.diviso.graeshoppe.offer.service.dto.DeductionValueTypeDTO;
 import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
+import com.diviso.graeshoppe.offer.service.dto.OfferDayDTO;
 import com.diviso.graeshoppe.offer.service.dto.StoreDTO;
 import com.diviso.graeshoppe.offer.service.mapper.DeductionValueTypeMapper;
+import com.diviso.graeshoppe.offer.service.mapper.OfferDayMapper;
 import com.diviso.graeshoppe.offer.service.mapper.OfferMapper;
 import com.diviso.graeshoppe.offer.service.mapper.StoreMapper;
 
@@ -38,7 +42,7 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
 			OfferSearchRepository offerSearchRepository, DeductionValueTypeRepository deductionValueTypeRepository,
 			DeductionValueTypeMapper deductionValueTypeMapper,
 			DeductionValueTypeSearchRepository deductionValueTypeSearchRepository, StoreRepository storeRepository,
-			StoreMapper storeMapper) {
+			StoreMapper storeMapper, OfferDayRepository offerDayRepository, OfferDayMapper offerDayMapper) {
 		super();
 		this.offerRepository = offerRepository;
 		this.offerMapper = offerMapper;
@@ -48,8 +52,9 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
 		this.deductionValueTypeSearchRepository = deductionValueTypeSearchRepository;
 		this.storeRepository = storeRepository;
 		this.storeMapper = storeMapper;
+		this.offerDayRepository = offerDayRepository;
+		this.offerDayMapper = offerDayMapper;
 	}
-
 
 	private final OfferRepository offerRepository;
 
@@ -67,6 +72,9 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
 
      private final StoreMapper storeMapper;
 
+     private final OfferDayRepository offerDayRepository;
+
+     private final OfferDayMapper offerDayMapper;
 
 	   
 	/**
@@ -137,6 +145,18 @@ public class AggregateQueryServiceImpl implements AggregateQueryService {
         return deductionValueTypeRepository.findAll(pageable)
             .map(deductionValueTypeMapper::toDto);
     }
+
+	@Override
+	public Page<OfferDayDTO> findAllOfferDaysByOfferId(Pageable pageable, Long offerId) {
+		 log.debug("Request to get all offer days");
+	       
+		 List<OfferDay> offerDayList=offerDayRepository.findAllByOfferId(offerId);
+		
+		 Page<OfferDay> offerDayPage = new PageImpl<OfferDay>(offerDayList, pageable, offerDayList.size());	
+		
+		log.info("**********offer page{}",offerDayPage.getSize());
+		return offerDayPage.map(offerDayMapper::toDto);
+	}
 
     
   

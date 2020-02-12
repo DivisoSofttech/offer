@@ -18,6 +18,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.diviso.graeshoppe.offer.service.AggregateQueryService;
 import com.diviso.graeshoppe.offer.service.dto.DeductionValueTypeDTO;
 import com.diviso.graeshoppe.offer.service.dto.OfferDTO;
+import com.diviso.graeshoppe.offer.service.dto.OfferDayDTO;
 import com.diviso.graeshoppe.offer.web.rest.util.PaginationUtil;
 
 import io.github.jhipster.web.util.ResponseUtil;
@@ -100,6 +101,25 @@ public class AggregateQueryResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/query/offers/get-all-deduction-value-types");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    /**
+     * GET  /get-offerdays-by-offerId : get offer applied days.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and the list of OfferDays in body
+     */
+    @GetMapping("/query/offers/get-offerdays-by-offerId/{offerId}")
+    @Timed
+    public ResponseEntity<List<OfferDayDTO>> getOfferDaysByOfferId(Pageable pageable, @PathVariable Long offerId) {
+        log.debug("REST request to get a page of OfferDays");
+        Page<OfferDayDTO> page = aggregateQueryService.findAllOfferDaysByOfferId(pageable,offerId);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/query/offers/get-offerdays-by-offerId");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    
+    
+    
     
     
     
