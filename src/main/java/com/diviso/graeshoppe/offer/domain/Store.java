@@ -16,7 +16,7 @@ import java.util.Objects;
 @ApiModel(description = "Store entity. @author Anjali")
 @Entity
 @Table(name = "store")
-@Document(indexName = "store")
+@Document(indexName = "offerstore")
 public class Store implements Serializable {
 
     private static final long serialVersionUID = 1L;
